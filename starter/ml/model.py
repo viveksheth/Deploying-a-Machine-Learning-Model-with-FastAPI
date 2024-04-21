@@ -151,7 +151,7 @@ def compute_slices(df, feature, y, preds):
         perf_df.at[option, 'fbeta'] = fbeta
 
     # reorder columns in performance dataframe
-    perf_df.reset_index(names='feature value', inplace=True)
+    perf_df.reset_index()
     colList = list(perf_df.columns)
     colList[0], colList[1] = colList[1], colList[0]
     perf_df = perf_df[colList]
