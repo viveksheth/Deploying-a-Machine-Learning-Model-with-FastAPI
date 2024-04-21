@@ -15,7 +15,7 @@ import os
 import pandas as pd
 
 # Initialize logging
-logging.basicConfig(filename='journal.log',
+logging.basicConfig(filename='starter/ml/journal.log',
                     level=logging.INFO,
                     filemode='a',
                     format='%(name)s - %(levelname)s - %(message)s')
@@ -34,7 +34,7 @@ def remove_if_exists(filename):
 
 
 # code to load in the data.
-datapath = "../data/census.csv"
+datapath = "starter/data/census.csv"
 data = pd.read_csv(datapath)
 
 
@@ -71,19 +71,19 @@ X_test, y_test, encoder, lb = process_data(
 
 
 # Train and save a model.
-savepath = '../model'
+savepath = 'starter/model'
 filename = ['trained_model.pkl', 'encoder.pkl', 'labelizer.pkl']
 
 # if saved model exits, load the model from disk
 if os.path.isfile(os.path.join(savepath, filename[0])):
     model = pickle.load(open(os.path.join(savepath, filename[0]), 'rb'))
     encoder = pickle.load(open(os.path.join(savepath, filename[1]), 'rb'))
-    lb = pickle.load(open(os.path.join(savepath, filename[2]), 'rb'))
+    labelizer = pickle.load(open(os.path.join(savepath, filename[2]), 'rb'))
 
 # Else Train and save a model.
 else:
     model = train_model(X_train, y_train)
-    # save model  to disk in ./model folder
+    # save model  to disk in starter/model folder
     pickle.dump(model, open(os.path.join(savepath, filename[0]), 'wb'))
     pickle.dump(encoder, open(os.path.join(savepath, filename[1]), 'wb'))
     pickle.dump(lb, open(os.path.join(savepath, filename[2]), 'wb'))

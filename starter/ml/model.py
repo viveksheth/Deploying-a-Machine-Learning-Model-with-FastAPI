@@ -1,22 +1,22 @@
-from sklearn.metrics import fbeta_score, precision_score, recall_score
-import logging
-import pandas as pd
-import multiprocessing
 from sklearn.metrics import fbeta_score, precision_score, recall_score, confusion_matrix
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import GridSearchCV
+import pandas as pd
+import multiprocessing
+import logging
 
-logging.basicConfig(filename='journal.log',
+
+logging.basicConfig(filename='starter/ml/journal.log',
                     level=logging.INFO,
                     filemode='w',
                     format='%(name)s - %(levelname)s - %(message)s')
 
+
 # Optional: implement hyperparameter tuning.
-
-
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
+    Use GridSearch for hyperparameter tuning and cross-validation
 
     Inputs
     ------
@@ -29,7 +29,6 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-
     parameters = {
         'n_estimators': [10, 20, 30],
         'max_depth': [5, 10],
@@ -56,7 +55,7 @@ def train_model(X_train, y_train):
 
 def compute_model_metrics(y, preds):
     """
-    Validates the trained machine learning model using precision, recall, and F1.
+    Validates the trained machine learning model using precision, recall, F1.
 
     Inputs
     ------
@@ -90,14 +89,14 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    predictions = model.predict(X)
+    preds = model.predict(X)
 
-    return predictions
+    return preds
 
 
 def compute_confusion_matrix(y, preds, labels=None):
     """
-    Compute confusion matrix using the predictions and ground thruth
+    Compute confusion matrix using the predictions and ground thruth provided
     Inputs
     ------
     y : np.array
@@ -106,10 +105,10 @@ def compute_confusion_matrix(y, preds, labels=None):
         Predicted labels, binarized.
     Returns
     ------
-    confusionMatrix : confusion matrix for the provided prediction set
+    cm : confusion matrix for the provided prediction set
     """
-    confusionMatrix = confusion_matrix(y, preds)
-    return confusionMatrix
+    cm = confusion_matrix(y, preds)
+    return cm
 
 
 def compute_slices(df, feature, y, preds):

@@ -1,0 +1,5 @@
+root - INFO - Classification target labels: ['<=50K', '>50K']
+root - INFO - precision:0.759, recall:0.643, fbeta:0.696
+root - INFO - Confusion matrix:
+[[4625  320]
+ [ 560 1008]]
