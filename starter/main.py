@@ -7,8 +7,7 @@ Date: Apr 20, 2024
 
 """
 
-from fastapi import FastAPI, HTTPException
-from typing import Union, Optional
+from fastapi import FastAPI
 import pandas as pd
 import os
 import pickle
@@ -62,8 +61,6 @@ class InputData(BaseModel):
 app = FastAPI(title="Inference API",
               description="An API that takes a sample and runs an inference",
               version="1.0.0")
-
-# load model artifacts on startup of the application to reduce latency
 
 
 @app.get("/")
