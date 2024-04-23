@@ -6,7 +6,7 @@ import multiprocessing
 import logging
 
 
-logging.basicConfig(filename='starter/ml/journal.log',
+logging.basicConfig(filename='journal.log',
                     level=logging.INFO,
                     filemode='w',
                     format='%(name)s - %(levelname)s - %(message)s')

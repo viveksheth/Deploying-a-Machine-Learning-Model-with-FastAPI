@@ -15,7 +15,7 @@ import os
 import pandas as pd
 
 # Initialize logging
-logging.basicConfig(filename='starter/ml/journal.log',
+logging.basicConfig(filename='journal.log',
                     level=logging.INFO,
                     filemode='a',
                     format='%(name)s - %(levelname)s - %(message)s')
@@ -34,7 +34,7 @@ def remove_if_exists(filename):
 
 
 # code to load in the data.
-datapath = "starter/data/census.csv"
+datapath = "../data/census.csv"
 data = pd.read_csv(datapath)
 
 
@@ -71,7 +71,7 @@ X_test, y_test, encoder, lb = process_data(
 
 
 # Train and save a model.
-savepath = 'starter/model'
+savepath = '../model'
 filename = ['trained_model.pkl', 'encoder.pkl', 'labelizer.pkl']
 
 # if saved model exits, load the model from disk
