@@ -67,7 +67,7 @@ app = FastAPI(title="Inference API",
 
 
 @app.get("/")
-async def greetings():
+async def read_main():
     return {"message": "Welcome to Fast API"}
 
 
@@ -118,7 +118,7 @@ async def ingest_data(inference: InputData):
         lb=lb
     )
 
-    # get model prediction which is a one-dim array like [1]
+    # get model prediction
     prediction = model.predict(sample)
 
     # convert prediction to label and add to data output
