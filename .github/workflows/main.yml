@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.8.18"]
+        python-version: ["3.9"]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -39,7 +39,8 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: |
-          pip install flake8==7.0.0 pytest==7.4.0
+          python -m pip install --upgrade pip
+          pip install flake8
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       # Lint with flake8
