@@ -16,8 +16,7 @@ from ml.data import process_data
 
 
 """
-Fixture - The test functions will 
-use the return of data() as an argument
+Fixtures
 """
 
 
@@ -105,7 +104,7 @@ def test_is_model():
     """
     Test saved model is present or not
     """
-    savepath = "../model/trained_model.pkl"
+    savepath = "./model/trained_model.pkl"
     if os.path.isfile(savepath):
         try:
             _ = pickle.load(open(savepath, 'rb'))
@@ -145,7 +144,7 @@ def test_inference(train_dataset):
         model = pickle.load(open(savepath, 'rb'))
 
         try:
-            preds = inference(model, X_train)
+            inference(model, X_train)
         except Exception as err:
             logging.error(
                 "Inference cannot be performed on saved model and train data")
@@ -156,7 +155,7 @@ def test_inference(train_dataset):
 
 def test_compute_confusion_matrix(train_dataset):
     """
-    Test calculation of confusion matrix function from model 
+    Test calculation of confusion matrix
     """
     X_train, y_train = train_dataset
 
@@ -166,7 +165,7 @@ def test_compute_confusion_matrix(train_dataset):
         preds = inference(model, X_train)
 
         try:
-            cm = compute_confusion_matrix(y_train, preds)
+            compute_confusion_matrix(y_train, preds)
         except Exception as err:
             logging.error(
                 "Confusion matrix cannot be calculated on train data")
@@ -187,7 +186,7 @@ def test_compute_model_metrics(train_dataset):
         preds = inference(model, X_train)
 
         try:
-            precision, recall, fbeta = compute_model_metrics(y_train, preds)
+            compute_model_metrics(y_train, preds)
         except Exception as err:
             logging.error(
                 "Performance metrics cannot be calculated on train data")

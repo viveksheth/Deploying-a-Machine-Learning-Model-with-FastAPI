@@ -1,6 +1,6 @@
 """
 Unit test of main.py Fast API module with pytest
-Author: Vivek Sheth 
+Author: Vivek Sheth
 Date: April 22, 2024
 """
 
@@ -8,7 +8,6 @@ from fastapi.testclient import TestClient
 from main import app
 import json
 import logging
-
 
 client = TestClient(app)
 

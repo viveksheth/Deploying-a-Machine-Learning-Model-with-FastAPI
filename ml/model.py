@@ -116,7 +116,7 @@ def compute_slices(df, feature, y, preds):
     Compute the performance on slices for a given categorical feature
     a slice corresponds to one value option of the categorical feature analyzed
     ------
-    df: 
+    df:
         test dataframe pre-processed with features as column used for slices
     feature:
         feature on which to perform the slices

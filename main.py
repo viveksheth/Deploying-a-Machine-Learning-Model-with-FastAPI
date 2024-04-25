@@ -1,7 +1,5 @@
-# Put the code for your API here.
-
 """
-Script for FastAPI instance and model interface 
+Code for FastAPI
 Author: Vivek Sheth
 Date: Apr 20, 2024
 """
@@ -16,8 +14,6 @@ from ml.data import process_data
 # path to saved artifacts
 savepath = './model'
 filename = ['trained_model.pkl', 'encoder.pkl', 'labelizer.pkl']
-
-# Declare the data object with its components and their type.
 
 
 class InputData(BaseModel):
@@ -126,7 +122,6 @@ async def ingest_data(inference: InputData):
     data['prediction'] = prediction
 
     return data
-
 
 if __name__ == '__main__':
     pass

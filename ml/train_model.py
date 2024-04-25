@@ -69,9 +69,8 @@ X_test, y_test, encoder, lb = process_data(
     lb=lb
 )
 
-
 # Train and save a model.
-savepath = '../model'
+savepath = './model'
 filename = ['trained_model.pkl', 'encoder.pkl', 'labelizer.pkl']
 
 # if saved model exits, load the model from disk
@@ -83,7 +82,7 @@ if os.path.isfile(os.path.join(savepath, filename[0])):
 # Else Train and save a model.
 else:
     model = train_model(X_train, y_train)
-    # save model  to disk in starter/model folder
+    # save model  to disk in model folder
     pickle.dump(model, open(os.path.join(savepath, filename[0]), 'wb'))
     pickle.dump(encoder, open(os.path.join(savepath, filename[1]), 'wb'))
     pickle.dump(lb, open(os.path.join(savepath, filename[2]), 'wb'))
