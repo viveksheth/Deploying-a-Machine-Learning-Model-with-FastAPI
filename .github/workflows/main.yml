@@ -49,6 +49,6 @@ jobs:
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           
       # Test with pytest
-      - name: Test with pytest
+      - name: Test model with pytest
         run: |
-          pytest tests -vv
+          pytest -vv
