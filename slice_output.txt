@@ -92,9 +92,9 @@ n_samples,feature,precision,recall,fbeta
 3,native-country,1.0,0.0,0.0
 10,native-country,0.75,0.75,0.75
 7,native-country,1.0,1.0,1.0
-9,native-country,0.0,0.0,0.0
+9,native-country,0.0,0.0,1.0
 2,native-country,1.0,1.0,1.0
-26,native-country,0.0,0.0,0.0
+26,native-country,0.0,0.0,1.0
 7,native-country,1.0,1.0,1.0
 12,native-country,1.0,1.0,1.0
 6,native-country,1.0,0.0,0.0

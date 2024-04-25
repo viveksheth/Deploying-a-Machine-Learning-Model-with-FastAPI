@@ -34,7 +34,7 @@ def remove_if_exists(filename):
 
 
 # code to load in the data.
-datapath = "../data/census.csv"
+datapath = "./data/census.csv"
 data = pd.read_csv(datapath)
 
 

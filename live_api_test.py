@@ -10,7 +10,7 @@ import json
 url = "https://deploying-a-machine-learning-model-with.onrender.com/inference/"
 
 # explicit the sample to perform inference on
-sample = {'age': 50,
+sample = {'age': 52,
           'workclass': "Private",
           'fnlgt': 234721,
           'education': "Doctorate",
