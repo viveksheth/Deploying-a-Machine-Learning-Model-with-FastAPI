@@ -4,7 +4,6 @@
 Script for FastAPI instance and model interface 
 Author: Vivek Sheth
 Date: Apr 20, 2024
-
 """
 
 from fastapi import FastAPI
@@ -18,8 +17,9 @@ from ml.data import process_data
 savepath = './model'
 filename = ['trained_model.pkl', 'encoder.pkl', 'labelizer.pkl']
 
-
 # Declare the data object with its components and their type.
+
+
 class InputData(BaseModel):
     age: int
     workclass: str
