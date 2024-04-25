@@ -7,7 +7,6 @@ Date: April 23, 2024
 import requests
 import json
 
-# url = "enter heroku web app url here"
 url = "https://deploying-a-machine-learning-model-with.onrender.com/inference/"
 
 # explicit the sample to perform inference on
