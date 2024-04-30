@@ -26,12 +26,25 @@ sample = {'age': 52,
           'native_country': "United-States"
           }
 
-data = json.dumps(sample)
 
-# post to API and collect response
-response = requests.post(url, data=data)
+def sample_data(sample_data):
+    return json.dumps(sample_data)
 
-# display output - response will show sample details + model prediction added
-print("response status code", response.status_code)
-print("response content:")
-print(response.json())
+
+def test_api():
+    try:
+        data = sample_data(sample)
+        # post to API and collect response
+        response = requests.post(url, data=data)
+        # display output - response will show sample details + model prediction added
+        response.raise_for_status()
+        print("response status code", response.status_code)
+        print("response content:")
+        print(response.json())
+    except requests.exceptions.RequestException as reqException:
+        print("Error occurred during API test: ", reqException)
+        return None
+
+
+if '__name__' == '__main__':
+    test_api()
